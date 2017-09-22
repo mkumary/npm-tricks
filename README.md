@@ -16,10 +16,10 @@ step1  : lists all global top level node-modules
 
 ```npm ls -gp --depth=0``` 
 
-filter all modules that are not actually npm itself (does not end with /npm)
+step2 : filter all modules that are not actually npm itself (does not end with /npm)
 
 ```awk -F/ '/node_modules/ && !/\/npm$/ {print $NF}'``` 
 
-removes all modules globally that come over the previous pipe
+step 3: removes all modules globally that come over the previous pipe
 
 ```xargs npm -g rm``` 
